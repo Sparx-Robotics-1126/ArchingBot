@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package edu.wpi.first.wpilibj.templates;
+package org.gosparx.team1126;
 
 
 import edu.wpi.first.wpilibj.SimpleRobot;
