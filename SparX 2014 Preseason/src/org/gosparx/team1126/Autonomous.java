@@ -10,12 +10,14 @@ package org.gosparx.team1126;
  */
 public class Autonomous {
     /**************************************************************************/
-    public static final int DRIVES_GO_FORWARD               = 1;//distance(inches), speed (int)
-    public static final int DRIVES_GO_REVERSE               = 2;
-    public static final int DRIVES_TURN_RIGHT               = 3;
-    public static final int DRIVES_TURN_LEFT                = 4;
-    public static final int DRIVES_STOP                     = 5;
-    public static final int WAIT                            = 99;
+    private static final int DRIVES_GO_FORWARD               = 1;//distance(inches), speed (int)
+    private static final int DRIVES_GO_REVERSE               = 2;
+    private static final int DRIVES_TURN_RIGHT               = 3;
+    private static final int DRIVES_TURN_LEFT                = 4;
+    private static final int DRIVES_STOP                     = 5;
+    private static final int DRIVES_ARC_LEFT                 = 6;
+    private static final int DRIVES_ARC_RIGHT                = 7;
+    private static final int WAIT                            = 99;
     /**************************************************************************/
     
     public void run(){
@@ -25,17 +27,21 @@ public class Autonomous {
         for(int curr = start; start < end; curr++){
             switch(currAuto[curr][0]){
                 case DRIVES_GO_FORWARD:
-                    driveForward(currAuto[curr][1], currAuto[curr][2]);
+                    drivesForward(currAuto[curr][1], currAuto[curr][2]);
                 case DRIVES_GO_REVERSE:
                     drivesReverse(currAuto[curr][1], currAuto[curr][2]);
                 case DRIVES_TURN_LEFT:
-                    drivesLeft(currAuto[curr][1]);
+                    drivesTurnLeft(currAuto[curr][1]);
                 case DRIVES_TURN_RIGHT:
-                    drivesRight(currAuto[curr][1]);
+                    drivesTurnRight(currAuto[curr][1]);
                 case DRIVES_STOP:
-                    stopDrives();
+                    drivesStop();
                 case WAIT:
-                    Thread.sleep(currAuto[curr][1]);
+            try {
+                Thread.sleep(currAuto[curr][1]);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
             }
         }
     }
@@ -48,7 +54,7 @@ public class Autonomous {
      /**
      * Drives the robot dis inches backwards at speed speed
      */
-    public void drivesBackwards(int dis, int speed){
+    public void drivesReverse(int dis, int speed){
         
     }
     /**
@@ -67,6 +73,18 @@ public class Autonomous {
      * stops the drives
      */
     public void drivesStop(){
+        
+    }
+    /**
+     * uses an arc turn to turn left on an arc with a radius of rad for deg degrees
+     */
+    public void drivesArcTurnLeft(int rad, int deg){
+        
+    }
+    /**
+     * uses an arc turn to turn right on an arc with a  radius of rad for deg degrees
+     */
+    public void drivesArcTurnRight(int rad, int deg){
         
     }
 }
