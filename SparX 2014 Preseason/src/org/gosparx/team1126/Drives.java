@@ -36,6 +36,10 @@ public class Drives {
     public void setMotorValues(double leftMotor, double rightMotor){
         leftMotorValue = leftMotor;
         rightMotorValue = rightMotor;
+        leftDrive1.set(leftMotor);
+        leftDrive2.set(leftMotor);
+        rightDrive1.set(rightMotor);
+        rightDrive2.set(rightMotor);
     }
     
     /**
